@@ -1,12 +1,16 @@
 import streamlit as st
 import numpy as np
 import joblib
+import os
+
+# Get the path of the current script
+current_dir = os.path.dirname(__file__)
+model_path = os.path.join(current_dir, 'lung_disease_nb_model.pkl')
 
 # Load trained model
-model = joblib.load('lung_disease_nb_model.pkl')
+model = joblib.load(model_path)
 
 st.title("Lung Disease Prediction – Naive Bayes")
-
 st.write("### Input Features")
 
 smoking = st.selectbox("Smoking", ["No", "Yes"])
